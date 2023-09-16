@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title">Numworks Version Checker</h1>
+    <div id="content">
+        <div class="content-box">
+            <p>This website is made to know what is the lastest version of <a href="https://github.com/numworks/epsilon">Epsilon</a>, the official OS for the Numworks.</p>
+            <p>If you want to also keep every release that Numworks publish, you can use the <a href="https://github.com/BloomyInDev/NumworksVersionChecker">NumworksVersionChecker</a> that i made.</p>
+            <p>NumWorks is a registered trademark of NumWorks SAS, 24 Rue Godot de Mauroy, 75009 Paris, France.</p>
+            <p>NumWorks SAS isn't associated in any shape or form with this project.</p>
+        </div>
+    </div>
+    <footer>
+        <div>
+            <p>This website is hosted on <a href="https://deno.com/deploy">Deno Deploy</a> and made with ❤️ by <a href="https://github.com/BloomyInDev">Bloomy</a><br><a href="/legal">Legal things</a></p>
+        </div>
+    </footer>
+    <script type="module" defer>
+        document.getElementById('title').addEventListener('click',()=>{window.location.href = '/'})
+    </script>
+    <style>
+        body {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            background-color: #353535;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            height: 100%;
+            min-height: 100vh;
+            justify-content: center;
+            place-items: center;
+            margin: 0;
+        }
+        #title {
+            font-size: 4rem;
+            text-align: center;
+            color: #9e9e9e;
+        }
+        #content {
+            width: 100%; 
+            display: flex; 
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #9e9e9e;
+        }
+        .content-box p {
+            text-align: center;
+            margin: 0;
+        }
+        footer {
+            width: fit-content;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            height: 4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #9e9e9e;
+            border-radius: 1rem 1rem 0 0;
+        }
+        footer p { text-align: center }
+        footer a {
+            color: #424242;
+            text-decoration: none;
+        }
+        a {color: #b6b6b6;}
+        @media (max-width: 640px) {
+            #title {
+                font-size: 2rem;
+                text-align: center;
+                color: #9e9e9e;
+            }
+            #calculators {
+                grid-template-columns: 1fr;
+            }
+
+        }
+    </style>
+</body>
+</html>
