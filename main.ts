@@ -1,6 +1,5 @@
 /// <reference lib="deno.unstable" />
 import { serve } from "https://deno.land/std@0.140.0/http/server.ts";
-import { cron } from "https://deno.land/x/deno_cron@v1.0.0/cron.ts";
 import { load } from "https://deno.land/std@0.201.0/dotenv/mod.ts";
 import utils from "./utils.json" assert { type: "json" };
 const env = await load();
@@ -50,8 +49,14 @@ const handler = async (req: Request) => {
           lastupdate = e.value
         }
       });
+      const sixhours = new Date().getTime() + (6 * 60 * 60 * 1000); //Hours+Minutes+Seconds+Miliseconds
+      let updating = false
+      if (lastupdate == null || lastupdate > sixhours ) {
+        getNewVersions()
+        updating = true
+      }
       return new Response(
-        JSON.stringify({ error: false, calcs: data, lastupdate: lastupdate }),
+        JSON.stringify({ error: false, calcs: data, lastupdate: lastupdate, updating: updating}),
         {
           headers: { "content-type": "application/json; charset=utf-8" },
         },
@@ -67,8 +72,5 @@ const handler = async (req: Request) => {
     }
   }
 };
-cron("0 0,12 * * *", () => {
-  getNewVersions();
-});
 //getNewVersions()
 serve(handler);

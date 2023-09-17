@@ -22,9 +22,15 @@
         </div>
     </footer>
     <script type="module" defer>
+        const delay = ms => new Promise(res => setTimeout(res, ms));
         const app = async () => {
-            const rawdata = await fetch('/raw-data');
-            const data = await rawdata.json();
+            let rawdata = await fetch('/raw-data');
+            let data = await rawdata.json();
+            if (data.updating) {
+                await delay(500)
+                rawdata = await fetch('/raw-data');
+                data = await rawdata.json();
+            }
             const calcs = data.calcs;
             let calculators = document.getElementById('calculators');
             calculators.innerHTML = ''
