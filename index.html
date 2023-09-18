@@ -42,7 +42,7 @@
                 calculators.appendChild(newelement);
             });
             let date = new Date(data.lastupdate)
-            document.getElementById('lastupdate').innerText = `Last updated: ${date.toLocaleString()}`
+            document.getElementById('lastupdate').innerText = `Last updated: ${date.toLocaleString([],{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"})}`
         }
         app()
     </script>
