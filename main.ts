@@ -49,9 +49,10 @@ const handler = async (req: Request) => {
           lastupdate = e.value
         }
       });
-      const sixhours = new Date().getTime() + (6 * 60 * 60 * 1000); //Hours+Minutes+Seconds+Miliseconds
+      const sixhours = lastupdate + (6 * 60 * 60 * 1000); //Hours+Minutes+Seconds+Miliseconds
+      console.log(new Date().getTime(),sixhours,lastupdate>=sixhours)
       let updating = false
-      if (lastupdate == null || lastupdate > sixhours ) {
+      if (lastupdate == null || new Date().getTime() >= sixhours) {
         getNewVersions()
         updating = true
       }

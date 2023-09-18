@@ -10,6 +10,7 @@
 <body>
     <h1 id="title">Numworks Version Checker</h1>
     <div id="content">
+        <p>This website let's you check what is the last version of <a href="https://github.com/numworks/epsilon">Epsilon</a></p>
         <div id="calculators">
             Loading
         </div>
@@ -73,8 +74,9 @@
             color: #9e9e9e;
         }
 
-        #lastupdate {
+        #content > p {
             font-size: 1.25rem;
+            text-align: center;
         }
 
         #calculators {
@@ -133,12 +135,17 @@
         }
 
         footer p {
-            text-align: center
+            text-align: center;
+            margin: 0;
         }
 
         footer a {
             color: #424242;
             text-decoration: none;
+        }
+
+        a {
+            color: #b6b6b6;
         }
 
         @media (max-width: 640px) {
@@ -152,6 +159,9 @@
                 grid-template-columns: 1fr;
             }
 
+            footer {
+                height: 5rem;
+            }
         }
     </style>
 </body>
